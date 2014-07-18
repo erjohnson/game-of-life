@@ -54,4 +54,19 @@ describe("Board", function() {
         testBoard.findByCoors(2,3).should.eql(testBoard.cells[5]);
       });
   });
+  describe("checkNeighbors", function(){
+    it("checks neighbors and returns the value of how many are true or false", function(){
+        var testBoard = Object.create(Board);
+        testBoard.initialize();
+        testBoard.cells[0].isAlive = true;
+        testBoard.cells[1].isAlive = true;
+        testBoard.checkNeighbors();
+        testBoard.cells[0].aliveNeighbors.should.equal(1);
+        testBoard.cells[1].aliveNeighbors.should.equal(1);
+        testBoard.cells[2].aliveNeighbors.should.equal(1);
+        testBoard.cells[3].aliveNeighbors.should.equal(1);
+        testBoard.cells[4].aliveNeighbors.should.equal(1);
+        testBoard.cells[5].aliveNeighbors.should.equal(1);
+    });
+  });
 });
