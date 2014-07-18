@@ -48,4 +48,12 @@ describe("Board", function() {
         testBoard.findByCoors(2,3).should.eql(testBoard.cells[5]);
       });
   });
+  describe("findNeighbors", function(){
+    it("should find 8 neighbors for cell 2,2", function(){
+      var testBoard = Object.create(Board);
+      testBoard.initialize();
+      testBoard.findNeighbors();
+      testBoard.cells[4].neighborsArr.length.should.equal(8);
+    });
+  });
 });
