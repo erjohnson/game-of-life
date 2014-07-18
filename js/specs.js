@@ -27,16 +27,10 @@ describe("Cell", function() {
       var testCell = Cell.create(1, 2);
       testCell.aliveNeighbors = 2;
       testCell.amIAlive();
-      testCell.isAlive.should.equal(true);
+      testCell.isAlive.should.equal(false);
     });
   });
-  // describe("findNeighbors", function() {
-  //   it("should find 8 or less neighbors of a given cell", function(){
-  //     var testCell = Cell.create(2, 2);
-  //     testCell.findNeighbors();
-  //     testCell.neighbors.length.should.equal(8);
-  //   });
-  // });
+  //
 });
 
 describe("Board", function() {
@@ -53,20 +47,5 @@ describe("Board", function() {
         testBoard.initialize();
         testBoard.findByCoors(2,3).should.eql(testBoard.cells[5]);
       });
-  });
-  describe("checkNeighbors", function(){
-    it("checks neighbors and returns the value of how many are true or false", function(){
-        var testBoard = Object.create(Board);
-        testBoard.initialize();
-        testBoard.cells[0].isAlive = true;
-        testBoard.cells[1].isAlive = true;
-        testBoard.checkNeighbors();
-        testBoard.cells[0].aliveNeighbors.should.equal(1);
-        testBoard.cells[1].aliveNeighbors.should.equal(1);
-        testBoard.cells[2].aliveNeighbors.should.equal(1);
-        testBoard.cells[3].aliveNeighbors.should.equal(1);
-        testBoard.cells[4].aliveNeighbors.should.equal(1);
-        testBoard.cells[5].aliveNeighbors.should.equal(1);
-    });
   });
 });
