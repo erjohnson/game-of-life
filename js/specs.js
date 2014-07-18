@@ -21,6 +21,22 @@ describe("Cell", function() {
       testCell.isAlive.should.equal(false);
     });
   });
+
+  describe("amIAlive", function() {
+    it("becomes self-aware and checks if isAlive is true or false", function() {
+      var testCell = Cell.create(1, 2);
+      testCell.aliveNeighbors = 2;
+      testCell.amIAlive();
+      testCell.isAlive.should.equal(true);
+    });
+  });
+  // describe("findNeighbors", function() {
+  //   it("should find 8 or less neighbors of a given cell", function(){
+  //     var testCell = Cell.create(2, 2);
+  //     testCell.findNeighbors();
+  //     testCell.neighbors.length.should.equal(8);
+  //   });
+  // });
 });
 
 describe("Board", function() {
@@ -31,11 +47,11 @@ describe("Board", function() {
       testBoard.cells.length.should.equal(9);
     });
   });
-  describe("checkIfAlive", function(){
-    it("checks if a cell is alive", function(){
-      var testBoard = Object.create(Board);
-      testBoard.initialize();
-      testBoard.aliveCells.length.should.equal(0);
-    });
+  describe("findByCoors", function(){
+    it("should find the matching cell object and buy it a coors rocky mountain refreshment", function() {
+        var testBoard = Object.create(Board);
+        testBoard.initialize();
+        testBoard.findByCoors(2,3).should.eql(testBoard.cells[5]);
+      });
   });
 });
